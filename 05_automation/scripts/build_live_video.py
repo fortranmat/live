@@ -36,9 +36,9 @@ def find_images(images_dir: Path) -> list[Path]:
     for pattern in patterns:
         files.extend(images_dir.glob(pattern))
     uniq = sorted(set(files))
-    if len(uniq) < 5:
-        raise RuntimeError(f"Need at least 5 images in {images_dir}. Found {len(uniq)}.")
-    return uniq[:5]
+    if len(uniq) < 1:
+        raise RuntimeError(f"Need at least 1 image in {images_dir}. Found {len(uniq)}.")
+    return uniq
 
 
 def build_filter_complex(image_count: int, hold_seconds: int) -> str:
@@ -56,7 +56,7 @@ def build_filter_complex(image_count: int, hold_seconds: int) -> str:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Create long live-ready video from 1 MP3 + 5 images.")
+    parser = argparse.ArgumentParser(description="Create long live-ready video from 1 MP3 + one or more images.")
     parser.add_argument("--project-root", default=".", help="Project root path")
     parser.add_argument("--hours", type=float, default=8.0, help="Target output duration in hours")
     parser.add_argument("--hold-seconds", type=int, default=12, help="Seconds each image stays before switching")

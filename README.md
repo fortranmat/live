@@ -80,10 +80,10 @@ live/
 - Store product and monetization links in `06_monetization/`.
 - Log every stream in `08_operations/logs/stream_log.md` to improve consistency.
 
-## Build Long Video from MP3 + 5 Images
+## Build Long Video from MP3 + Image(s)
 
 1. Put exactly one MP3 in `11_user_input/audio/`.
-2. Put at least 5 images in `11_user_input/images/`.
+2. Put one or more images in `11_user_input/images/`.
 3. Run:
 
 ```bash
@@ -91,6 +91,12 @@ python3 05_automation/scripts/build_live_video.py --project-root . --hours 8 --h
 ```
 
 Output video is saved to `11_user_input/output/`.
+
+### 10-Minute Sample
+
+```bash
+bash 05_automation/scripts/make_10min_sample.sh
+```
 
 ## OBS Runtime Note
 
